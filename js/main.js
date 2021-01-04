@@ -286,6 +286,44 @@
 		})
 	};
 
+
+
+	$("form#contact_me").submit(function(e){
+		let name = $("input#username").val();
+		let email = $("input#email").val();
+		let subject = $("input#subject").val();
+		let message = $("input#message").val();
+		console.log(name);
+		console.log(email);
+		console.log(subject);
+		console.log(message);
+
+
+
+		if (name && email && subject && message) {
+			// send the data to email
+			Email.send({ 
+				Host: "smtp.gmail.com", 
+				Username: email, 
+				To: 'albertbyrone1677@gmail.com', 
+				From: email, 
+				Subject: subject, 
+				Body: message, 
+			  }) 
+				.then(function (message) { 
+					// create pop to notify
+				  alert("mail sent successfully") 
+				});
+			
+		}
+		else {
+			//  use alert message to give notification
+			alert("Please enter your name and email!");
+		}
+		e.preventDefault();
+		
+	})
+
 	// Document on load.
 	$(function(){
 		fullHeight();
