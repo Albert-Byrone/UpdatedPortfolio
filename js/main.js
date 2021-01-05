@@ -311,6 +311,7 @@
 				Body: message, 
 			  }) 
 				.then(function (message) { 
+					console.log("The message is send suceefuly")
 					// create pop to notify
 				  alert("mail sent successfully") 
 				});
